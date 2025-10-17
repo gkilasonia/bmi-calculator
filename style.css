@@ -444,7 +444,7 @@ img {
   flex-direction: column;
   gap: 1.6rem;
   background-color: var(--White);
-  box-shadow: 1.6rem 3.2rem 5.6rem rgba(143, 174, 207, 0.25);
+  box-shadow: 1.6rem 3.2rem 5.6rem var(--Shadow);
   border-radius: 1.6rem;
   padding: 2.4rem;
 }
@@ -472,7 +472,7 @@ img {
    Media Queries
    ========================= */
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .header-section {
     padding: 3.2rem 4rem 8.8rem;
   }
@@ -550,7 +550,7 @@ img {
   .main-image {
     width: 43.5rem;
     height: 41.1rem;
-    margin-left: -8rem;
+    margin-inline-start: -8rem;
   }
 
   .result-text-container {
@@ -589,7 +589,7 @@ img {
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 90em) {
   .header-section {
     padding: 8.8rem 14rem 8.5rem;
   }

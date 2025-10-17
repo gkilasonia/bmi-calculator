@@ -41,11 +41,11 @@
             action="#"
             method="post"
           >
+            <h2 id="unit-label" class="metric-imperial-heading">
+              Enter your details below
+            </h2>
             <fieldset class="unit-fieldset radio-buttons">
               <legend>Enter your details below</legend>
-              <h2 id="unit-label" class="metric-imperial-heading">
-                Enter your details below
-              </h2>
 
               <div
                 class="radio-container"
@@ -53,35 +53,26 @@
                 aria-labelledby="unit-label"
               >
                 <div class="metric-container">
-                  <input
-                    type="radio"
-                    id="metric"
-                    name="unit"
-                    placeholder="metric"
-                    checked
-                  />
+                  <input type="radio" id="metric" name="unit" checked />
                   <label class="metric-label" for="metric">Metric</label>
                 </div>
 
                 <div class="imperial-container">
-                  <input
-                    type="radio"
-                    id="imperial"
-                    name="unit"
-                    placeholder="imperial"
-                  />
+                  <input type="radio" id="imperial" name="unit" />
                   <label class="imperial-label" for="imperial">Imperial</label>
                 </div>
               </div>
             </fieldset>
 
             <fieldset id="metric-container" class="unit-fieldset metric">
+              <legend>Measurement Units</legend>
               <div class="input-container">
                 <label class="height-label" for="height-cm">Height</label>
                 <div class="container-ex">
                   <input
                     class="height-input"
-                    type="number"
+                    type="text"
+                    inputmode="numeric"
                     id="height-cm"
                     name="height"
                     placeholder="0"
@@ -96,7 +87,8 @@
                 <div class="container-ex">
                   <input
                     class="weight-input"
-                    type="number"
+                    type="text"
+                    inputmode="numeric"
                     id="weight-kg"
                     name="weight"
                     placeholder="0"
@@ -114,7 +106,8 @@
                   <div class="container-ex">
                     <input
                       class="height-input"
-                      type="number"
+                      type="text"
+                      inputmode="numeric"
                       id="height-ft"
                       name="height-ft"
                       placeholder="0"
@@ -125,7 +118,8 @@
                   <div class="container-ex">
                     <input
                       class="height-input"
-                      type="number"
+                      type="text"
+                      inputmode="numeric"
                       id="height-in"
                       name="height-in"
                       placeholder="0"
@@ -142,7 +136,8 @@
                   <div class="container-ex">
                     <input
                       class="weight-input"
-                      type="number"
+                      type="text"
+                      inputmode="numeric"
                       id="weight-st"
                       name="weight-st"
                       placeholder="0"
@@ -153,7 +148,8 @@
                   <div class="container-ex">
                     <input
                       class="weight-input"
-                      type="number"
+                      type="text"
+                      inputmode="numeric"
                       id="weight-lbs"
                       name="weight-lbs"
                       placeholder="0"
@@ -281,7 +277,7 @@
       </div>
 
       <div class="limitations-cards-container">
-        <section
+        <article
           class="limitation-card gender"
           aria-labelledby="gender-heading"
         >
@@ -299,9 +295,9 @@
             age. Consequently, a child's age and gender are considered when
             evaluating their BMI.
           </p>
-        </section>
+        </article>
 
-        <section class="limitation-card age" aria-labelledby="age-heading">
+        <article class="limitation-card age" aria-labelledby="age-heading">
           <div class="title-icon-container">
             <img
               class="card-icon"
@@ -315,9 +311,9 @@
             In aging individuals, increased body fat and muscle loss may cause
             BMI to underestimate body fat content.
           </p>
-        </section>
+        </article>
 
-        <section
+        <article
           class="limitation-card muscle"
           aria-labelledby="muscle-heading"
         >
@@ -334,9 +330,9 @@
             BMI may misclassify muscular individuals as overweight or obese, as
             it doesn't differentiate muscle from fat.
           </p>
-        </section>
+        </article>
 
-        <section
+        <article
           class="limitation-card pregnancy"
           aria-labelledby="pregnancy-heading"
         >
@@ -354,9 +350,9 @@
             Maintaining a healthy pre-pregnancy BMI is advisable to minimise
             health risks for both mother and child.
           </p>
-        </section>
+        </article>
 
-        <section class="limitation-card race" aria-labelledby="race-heading">
+        <article class="limitation-card race" aria-labelledby="race-heading">
           <div class="title-icon-container">
             <img
               class="card-icon"
@@ -371,7 +367,7 @@
             Asian origins at lower BMIs than others. To learn more, it is
             advised to discuss this with your GP or practice nurse.
           </p>
-        </section>
+        </article>
       </div>
     </section>
     <script src="script.js"></script>

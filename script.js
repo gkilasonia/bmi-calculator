@@ -96,13 +96,17 @@ function calculateMetricBMI() {
  * Calculates BMI using imperial units and updates the display.
  */
 function calculateImperialBMI() {
-  const heightFt = parseFloat(imperialHeightFtInput.value);
-  const heightIn = parseFloat(imperialHeightInInput.value) || 0; // Default to 0 if empty
-  const weightSt = parseFloat(imperialWeightStInput.value);
-  const weightLbs = parseFloat(imperialWeightLbsInput.value) || 0; // Default to 0 if empty
+  const heightFt = parseFloat(imperialHeightFtInput.value) || 0;
+  const heightIn = parseFloat(imperialHeightInInput.value) || 0;
+  const weightSt = parseFloat(imperialWeightStInput.value) || 0;
+  const weightLbs = parseFloat(imperialWeightLbsInput.value) || 0;
+
+  // Validate that total height and weight are positive numbers
+  const totalHeightInches = heightFt * 12 + heightIn; // Convert height fully to inches
+  const totalWeightPounds = weightSt * 14 + weightLbs; // Convert weight fully to pounds
 
   // Validate inputs. Feet and Stone must be positive.
-  if (heightFt > 0 && weightSt > 0) {
+  if (totalHeightInches > 0 && totalWeightPounds > 0) {
     const totalInches = heightFt * INCHES_PER_FOOT + heightIn;
     const totalPounds = weightSt * POUNDS_PER_STONE + weightLbs;
 
@@ -110,10 +114,12 @@ function calculateImperialBMI() {
       (totalPounds / (totalInches * totalInches)) * IMPERIAL_BMI_FACTOR;
 
     const healthyWeightLow =
-      (BMI_CATEGORIES.UNDERWEIGHT * (totalInches * totalInches)) /
+      BMI_CATEGORIES.UNDERWEIGHT *
+      (totalInches * totalInches) *
       IMPERIAL_BMI_FACTOR;
     const healthyWeightHigh =
-      (BMI_CATEGORIES.HEALTHY * (totalInches * totalInches)) /
+      BMI_CATEGORIES.HEALTHY *
+      (totalInches * totalInches) *
       IMPERIAL_BMI_FACTOR;
 
     updateBmiDisplay(
