@@ -102,24 +102,20 @@ function calculateImperialBMI() {
   const weightLbs = parseFloat(imperialWeightLbsInput.value) || 0;
 
   // Validate that total height and weight are positive numbers
-  const totalHeightInches = heightFt * 12 + heightIn; // Convert height fully to inches
-  const totalWeightPounds = weightSt * 14 + weightLbs; // Convert weight fully to pounds
+  const totalHeightInches = heightFt * INCHES_PER_FOOT + heightIn; // Convert height fully to inches
+  const totalWeightPounds = weightSt * POUNDS_PER_STONE + weightLbs; // Convert weight fully to pounds
 
   // Validate inputs. Feet and Stone must be positive.
   if (totalHeightInches > 0 && totalWeightPounds > 0) {
-    const totalInches = heightFt * INCHES_PER_FOOT + heightIn;
-    const totalPounds = weightSt * POUNDS_PER_STONE + weightLbs;
-
     const bmi =
-      (totalPounds / (totalInches * totalInches)) * IMPERIAL_BMI_FACTOR;
+      (totalWeightPounds / (totalHeightInches * totalHeightInches)) *
+      IMPERIAL_BMI_FACTOR;
 
     const healthyWeightLow =
-      BMI_CATEGORIES.UNDERWEIGHT *
-      (totalInches * totalInches) *
+      (BMI_CATEGORIES.UNDERWEIGHT * (totalHeightInches * totalHeightInches)) /
       IMPERIAL_BMI_FACTOR;
     const healthyWeightHigh =
-      BMI_CATEGORIES.HEALTHY *
-      (totalInches * totalInches) *
+      (BMI_CATEGORIES.HEALTHY * (totalHeightInches * totalHeightInches)) /
       IMPERIAL_BMI_FACTOR;
 
     updateBmiDisplay(
@@ -152,8 +148,8 @@ function switchUnitSystem(systemToShow) {
 }
 
 // Attach event listeners.
-metricRadio.addEventListener("click", () => switchUnitSystem("metric"));
-imperialRadio.addEventListener("click", () => switchUnitSystem("imperial"));
+metricRadio.addEventListener("change", () => switchUnitSystem("metric"));
+imperialRadio.addEventListener("change", () => switchUnitSystem("imperial"));
 
 // A single event handler is attached to all metric inputs.
 metricInputs.forEach((input) =>
@@ -318,12 +314,12 @@ imperialInputs.forEach((input) =>
 // }
 
 // function calculateImperialBMI(heightFt, heightIn, weightSt, weightLbs) {
-//   let totalInches = heightFt * 12 + parseInt(heightIn);
+//   let totalHeightInches = heightFt * 12 + parseInt(heightIn);
 //   let totalPounds = weightSt * 14 + parseInt(weightLbs);
-//   let bmi = (totalPounds / (totalInches * totalInches)) * 703;
+//   let bmi = (totalPounds / (totalHeightInches * totalHeightInches)) * 703;
 //   bmiNumber.textContent = bmi.toFixed(1);
-//   let healthyWeightLow = (18.5 * (totalInches * totalInches)) / 703;
-//   let healthyWeightHigh = (24.9 * (totalInches * totalInches)) / 703;
+//   let healthyWeightLow = (18.5 * (totalHeightInches * totalHeightInches)) / 703;
+//   let healthyWeightHigh = (24.9 * (totalHeightInches * totalHeightInches)) / 703;
 //   from.textContent = healthyWeightLow.toFixed(1) + "lbs";
 //   to.textContent = healthyWeightHigh.toFixed(1) + "lbs";
 //   if (bmi < 18.5) {

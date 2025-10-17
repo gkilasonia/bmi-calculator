@@ -617,7 +617,7 @@ img {
     align-items: flex-start;
     text-align: left;
     gap: 3.2rem;
-    padding-top: 7.2rem;
+    padding-block-start: 7.2rem;
     max-width: 46.5rem;
   }
 
