@@ -1,0 +1,756 @@
+/* =========================
+   Fonts and Root Variables
+   ========================= */
+@font-face {
+  font-family: "Inter-Regular";
+  src: url("./assets/fonts/static/Inter-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter-SemiBold";
+  src: url("./assets/fonts/static/Inter-SemiBold.ttf") format("truetype");
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors */
+  --White: hsl(0, 100%, 100%);
+  --Black: hsl(0, 0%, 0%);
+  /* Gray */
+  --Grey-300: hsl(215, 43%, 77%);
+  --Grey-500: hsl(215, 17%, 45%);
+  /* Blue */
+  --Blue-100: hsl(228, 94%, 94%);
+  --Blue-300: hsl(209, 69%, 82%);
+  --Blue-500: hsl(227, 92%, 58%);
+  --Blue-900: hsl(215, 31%, 21%);
+  /* Gradient */
+  --Gradient-0: hsl(183, 95%, 92%);
+  --Gradient-1: hsl(216, 95%, 92%);
+  /* Shadow */
+  --Shadow: rgba(143, 174, 207, 0.25);
+  /* Fonts */
+  --Inter-Regular: "Inter-Regular", sans-serif;
+  --Inter-SemiBold: "Inter-SemiBold", sans-serif;
+}
+
+/* =========================
+   Global Reset & Utilities
+   ========================= */
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--Inter-Regular);
+  min-height: 100dvh;
+}
+
+button {
+  font: inherit;
+  border: none;
+  line-height: 1;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+}
+
+/* =========================
+   Headings
+   ========================= */
+.header-section {
+  padding: 3.2rem 2.4rem 6.4rem;
+}
+
+.gradient-background {
+  background: linear-gradient(
+    to right,
+    var(--Gradient-0) 0%,
+    var(--Gradient-1) 100%
+  );
+  height: 65rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 0 0 0.8rem 0.8rem;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.bmi-logo {
+  width: 4rem;
+  height: 4rem;
+}
+
+.heading-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  text-align: center;
+}
+
+.heading {
+  font-family: var(--Inter-SemiBold);
+  font-size: 4.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  color: var(--Blue-900);
+}
+
+.heading-text {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--Grey-500);
+}
+
+.form-welcome-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  background-color: var(--White);
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+  box-shadow: 1.6rem 3.2rem 5.6rem 0rem var(--Shadow);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.unit-fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.unit-fieldset legend {
+  position: absolute;
+  width: 0.1rem;
+  height: 0.1rem;
+  padding: 0;
+  margin: -0.1rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.metric-imperial-heading {
+  font-size: 2.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.0877rem;
+  color: var(--Blue-900);
+}
+
+.radio-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric-container,
+.imperial-container {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.unit-fieldset input[type="radio"] {
+  width: 3.1rem;
+  height: 3.1rem;
+  accent-color: var(--Blue-500);
+}
+
+.metric-label,
+.imperial-label {
+  font-family: var(--Inter-SemiBold);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--Blue-900);
+  cursor: pointer;
+}
+
+.unit-fieldset input[type="radio"]:focus + label {
+  outline: 0.2rem solid var(--Blue-500);
+  outline-offset: 0.2rem;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.height-label,
+.weight-label {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: var(--Grey-500);
+}
+
+.height-input,
+.weight-input {
+  font-family: var(--Inter-SemiBold);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.12rem;
+  color: var(--Blue-900);
+  width: 100%;
+  padding: 2.4rem;
+  border: 0.1rem solid var(--Grey-500);
+  border-radius: 1.2rem;
+  height: 7.7rem;
+  cursor: pointer;
+}
+
+.container-ex {
+  position: relative;
+  width: 100%;
+}
+
+.unit {
+  font-family: var(--Inter-SemiBold);
+  position: absolute;
+  top: 50%;
+  right: 2.4rem;
+  transform: translateY(-50%);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.0205rem;
+  color: var(--Blue-500);
+}
+
+.imperial-height-container {
+  display: flex;
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.imperial {
+  display: none;
+}
+
+.welcome-result-container {
+  background-color: var(--Blue-500);
+  color: var(--White);
+  border-radius: 1.6rem;
+  padding: 3.2rem;
+}
+
+.welcome-container {
+  display: flex; /*switch to none*/
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.4rem;
+}
+
+.welcome-header {
+  font-family: var(--Inter-SemiBold);
+  font-size: 2.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.0877rem;
+}
+
+.welcome-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.bmi-result {
+  display: none; /*switch to flex*/
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.bmi-value {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.bmi-label {
+  font-family: var(--Inter-SemiBold);
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.bmi-number {
+  font-family: var(--Inter-SemiBold);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 4.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.0887rem;
+}
+
+.bmi-description {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.from-to {
+  font-family: var(--Inter-SemiBold);
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  padding: 0;
+}
+
+.pattern-curved-line-left {
+  display: none;
+}
+
+.result-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  padding: 0 2.35rem 6.1rem;
+}
+
+.results-title {
+  font-family: var(--Inter-SemiBold);
+  font-size: 3.2rem;
+  line-height: 1.1;
+  letter-spacing: -0.0877rem;
+  color: var(--Blue-900);
+}
+
+.result-description {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--Grey-500);
+}
+
+.tips-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 5.6rem 2.4rem;
+  background: linear-gradient(
+    to right,
+    var(--Gradient-0) 0%,
+    var(--Gradient-1) 100%
+  );
+}
+
+.healthy-eating-container,
+.regular-eating-container,
+.adequate-eating-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.icon-tips {
+  width: 6.4rem;
+}
+
+.tips-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.tips-title {
+  font-family: var(--Inter-SemiBold);
+  font-size: 2.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.0877rem;
+  color: var(--Blue-900);
+}
+
+.tips-description {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--Grey-500);
+}
+
+.limitations {
+  display: flex;
+  flex-direction: column;
+  gap: 5.6rem;
+  padding: 8.2rem 2.4rem 9.6rem;
+}
+
+.limitations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  align-items: center;
+}
+
+.limitations-title {
+  font-family: var(--Inter-SemiBold);
+  font-size: 3.2rem;
+  line-height: 1.1;
+  letter-spacing: -0.0877rem;
+  color: var(--Blue-900);
+}
+
+.limitations-description {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--Grey-500);
+}
+
+.pattern-curved-line-right {
+  display: none;
+}
+
+.limitations-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.limitation-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  background-color: var(--White);
+  box-shadow: 1.6rem 3.2rem 5.6rem rgba(143, 174, 207, 0.25);
+  border-radius: 1.6rem;
+  padding: 2.4rem;
+}
+
+.title-icon-container {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.card-title {
+  font-family: var(--Inter-SemiBold);
+  font-size: 2rem;
+  line-height: 1.5;
+  letter-spacing: -0.0877rem;
+  color: var(--Blue-900);
+}
+
+.card-description {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--Grey-500);
+}
+/* =========================
+   Media Queries
+   ========================= */
+
+@media (min-width: 768px) {
+  .header-section {
+    padding: 3.2rem 4rem 8.8rem;
+  }
+
+  .gradient-background {
+    height: 64rem;
+    border-radius: 0 0 3.5rem 3.5rem;
+  }
+
+  .header-container {
+    gap: 4rem;
+  }
+
+  .form-welcome-container {
+    width: 100%;
+    padding: 3.2rem;
+    gap: 3.2rem;
+  }
+
+  .form-container {
+    gap: 3.2rem;
+  }
+
+  .radio-buttons {
+    align-items: flex-start;
+    gap: 3.2rem;
+  }
+
+  .radio-container {
+    justify-content: flex-start;
+    gap: 2.4rem;
+  }
+
+  .metric-container,
+  .imperial-container {
+    width: 100%;
+  }
+
+  .metric {
+    flex-direction: row;
+  }
+
+  .imperial {
+    gap: 3.2rem;
+  }
+
+  .imperial-height-container {
+    gap: 3.2rem;
+  }
+
+  .welcome-result-container {
+    border-radius: 1.6rem 9.9rem 9.9rem 1.6rem;
+  }
+
+  .welcome-container {
+    gap: 1.6rem;
+  }
+
+  .bmi-result {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .bmi-value,
+  .bmi-description {
+    width: 100%;
+  }
+
+  .main-section {
+    flex-direction: row;
+    align-items: center;
+    padding: 0 0 9.6rem 0;
+  }
+
+  .main-image {
+    width: 43.5rem;
+    height: 41.1rem;
+    margin-left: -8rem;
+  }
+
+  .result-text-container {
+    padding: 0 4.6rem 0 0;
+  }
+
+  .tips-container {
+    padding: 6rem 4.1rem;
+  }
+
+  .healthy-eating-container,
+  .regular-eating-container,
+  .adequate-eating-container {
+    flex-direction: row;
+    gap: 4rem;
+  }
+
+  .limitations {
+    padding: 9.6rem 4.1rem;
+  }
+
+  .limitations-cards-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+    justify-content: center;
+  }
+
+  .limitation-card {
+    flex-basis: calc(50% - 1.2rem);
+    padding: 3.2rem;
+  }
+
+  .limitation-card:nth-child(5) {
+    flex-basis: 53.208%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header-section {
+    padding: 8.8rem 14rem 8.5rem;
+  }
+
+  .gradient-background {
+    height: 73.7rem;
+    width: 69.584%;
+  }
+
+  .header-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.4rem;
+    column-gap: 3.2rem;
+    align-items: unset;
+  }
+
+  .bmi-logo {
+    width: 6.4rem;
+    height: 6.4rem;
+    grid-column: 1 / 3;
+  }
+
+  .heading-text-container {
+    align-items: flex-start;
+    text-align: left;
+    gap: 3.2rem;
+    padding-top: 7.2rem;
+    max-width: 46.5rem;
+  }
+
+  .heading {
+    font-size: 6.4rem;
+    line-height: 1.1;
+  }
+
+  .bmi-number {
+    font-size: 6.4rem;
+    line-height: 1.1;
+  }
+
+  .height-input,
+  .weight-input {
+    padding: 1.6rem 2.4rem;
+    height: 6.1rem;
+  }
+
+  .main-section {
+    padding: 0 14.4rem 0 13.6rem;
+    gap: 13.1rem;
+    align-items: unset;
+  }
+
+  .main-image {
+    width: 56.4rem;
+    height: 53.3rem;
+    margin: 5.2rem 0 8.6rem;
+  }
+
+  .your-result-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+  }
+
+  .pattern-curved-line-left {
+    align-self: flex-end;
+    display: inline;
+    width: 8.5rem;
+    height: 20rem;
+  }
+
+  .result-text-container {
+    padding: 0;
+  }
+
+  .results-title {
+    font-size: 4.8rem;
+    line-height: 1.1;
+    letter-spacing: -0.1rem;
+  }
+
+  .tips-container {
+    margin: 0 2.4rem;
+    border-radius: 3.5rem;
+    padding: 9.25rem 11.65rem;
+    flex-direction: row;
+    gap: 3.2rem;
+  }
+
+  .healthy-eating-container,
+  .regular-eating-container,
+  .adequate-eating-container {
+    flex: 1;
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+
+  .limitations {
+    padding: 11.5rem 14rem;
+    flex-direction: row;
+    position: relative;
+  }
+
+  .limitations-container {
+    align-items: flex-start;
+  }
+
+  .limitations-title {
+    font-size: 4.8rem;
+    line-height: 1.1;
+  }
+
+  .limitations-description {
+    text-align: left;
+    width: 56.4rem;
+  }
+
+  .pattern-curved-line-right {
+    display: inline;
+    width: 9.4rem;
+    height: 12.2rem;
+    margin: 3.8rem 0 0 16.5rem;
+  }
+
+  .limitations-cards-container {
+    position: absolute;
+    display: grid;
+    width: unset;
+    grid-template-columns: 19.9rem 19.9rem 19.8rem 10rem 9.9rem 0rem;
+    grid-template-rows: auto auto auto 7.5rem;
+    gap: 0;
+    row-gap: 3.2rem;
+  }
+
+  .gender {
+    grid-column: 5 / span 1;
+    grid-row: 1;
+  }
+
+  .age {
+    grid-column: 3 / span 1;
+    grid-row: 2;
+  }
+
+  .muscle {
+    grid-column: 6 / span 1;
+    grid-row: 2;
+  }
+
+  .pregnancy {
+    grid-column: 2 / span 1;
+    grid-row: 3;
+  }
+
+  .race {
+    grid-column: 4 / span 1;
+    grid-row: 3;
+  }
+
+  .limitation-card {
+    width: 36.5rem;
+  }
+}
